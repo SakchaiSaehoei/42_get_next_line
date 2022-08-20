@@ -6,7 +6,7 @@
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 08:50:42 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/21 00:10:22 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/21 05:20:07 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,46 +43,83 @@ size_t	ft_strlen_with_mode(char *s,char mode)
 		count++;
 	return (count);
 }
-//							remian, char,    &len
-char	*ft_dup_with_mode( char *s,char mode ,int *len)
+char	*ft_dup_with_mode_n(char *s,char mode ,int *len)
 {
+	size_t	i;
 	char	*buf;
-	int		i;
 
-	printf("%s\t|%c|\n",s,mode);
 	if (!s)
 		return (NULL);
 	buf = (char *)malloc(sizeof(char) * (ft_strlen_with_mode(s,mode) + 1));
 	if (!buf)
 		return (NULL);
-	printf("strlen wit mode = %zu\n",ft_strlen_with_mode(s,mode));
+	i = 0;
+	while (i < ft_strlen_with_mode(s,mode))
+	{
+		buf[i] = s[i];
+		i++;
+	}
+	buf[i] = '\0';
+	*len = i;
+
+	return (buf);
+
+}
+char	*ft_dup_with_mode_null( char *s,char mode ,int *len)
+{
+	int		i;
+	char	*buf;
+
+	if (!s)
+		return (NULL);
+	buf = (char *)malloc(sizeof(char) * (ft_strlen_with_mode(s,mode) + 1));
+	if (!buf)
+		return (NULL);
+
 	i = 0;
 	while (*(s + i) != '\0')
 	{
 		*(buf + i) = *(s + i);
-		printf("====== %p = %c\t%p = %c =======\n", &buf[i], buf[i], &s[i], s[i]);
-		if((*(buf + i) == '\n') && mode == '\n')
-		{
-			i++;
-			break;
-		}
 		i++;
 	}
-
 	*(buf + i) = '\0';
 	*len = i;
+	return (buf);
 
-	// printf("len of buf %zu\n",ft_strlen(buf));
-	printf("address of = %p\n",&s[0]);
+}
+//							remian, char,    &len
+char	*ft_dup_with_mode( char *s,char mode ,int *len)
+{
+	int		i;
+	char	*buf;
+
+	buf = NULL;
+	if (!s)
+		return (NULL);
+	buf = (char *)malloc(sizeof(char) * (ft_strlen_with_mode(s,mode) + 1));
+	if (!buf)
+		return (NULL);
+	i = 0;
+	while (*(s + i) != '\0')
+	{
+		*(buf + i) = *(s + i);
+
+		if((*(buf + i) == '\n') && (mode == '\n'))
+			break;
+		i++;
+	}
+	*(buf + i) = '\0';
+	*len = i;
 	if(s)
 	{
 		free(s);
 		s = NULL;
 	}
+
 	return (buf);
 }
 
-void	*ft_calloc(size_t nmemb, size_t size)// not sure if it is really nesserslay or not
+void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*a;
 	unsigned char	*buff;
@@ -111,6 +148,7 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	len_all;
 	size_t	i;
+	size_t	j;
 	char	*new_str;
 
 	if(!s1 || !s2)
@@ -122,18 +160,21 @@ char	*ft_strjoin(char *s1, char *s2)
 	i = 0;
 	if (!new_str)
 		return (NULL);
-	while (*(s1 + i)!= '\0')
+	// while (*(s1 + i)!= '\0')
+	while (i < ft_strlen(s1))
 	{
-			*(new_str + i) = *(s1+i);
-			i++;
+		*(new_str + i) = *(s1+i);
+		i++;
 	}
-	while (*s2 != '\0')
+	j = 0;
+	while (j < ft_strlen(s2))
 	{
-		*(new_str + i) = *s2;
-		s2++;
+		*(new_str + i) = *(s2 + j);
+		j++;
 		i++;
 	}
 	*(new_str + i) = '\0';
+	free(s1);
 	return (new_str);
 }
 
@@ -151,20 +192,21 @@ char	*ft_strchr( char *s, int c)// use to check if '\n' is exits/
 
 // tempppppp
 
-char	*ft_strdup( char *s)
-{
-	char	*buf;
-	int		i;
-
-	buf = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	i = 0;
-	if (!s || !buf)
-		return (NULL);
-	while (*(s + i) != '\0')
-	{
-		*(buf + i) = *(s + i);
-		i++;
-	}
-	*(buf + i) = '\0';
-	return (buf);
-}
+// char	*ft_strdup( char *s)
+// {
+// 	char	*buf;
+// 	int		i;
+// 	if(!s)
+// 		return(NULL);
+// 	buf = (char *)malloc(sizeof(char) * (ft_strlen_with_mode(s,TILL_NULL) + 1));
+// 	i = 0;
+// 	if (!buf)
+// 		return (NULL);
+// 	while (*(s + i) != '\0')
+// 	{
+// 		*(buf + i) = *(s + i);
+// 		i++;
+// 	}
+// 	*(buf + i) = '\0';
+// 	return (buf);
+// }

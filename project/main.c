@@ -6,7 +6,7 @@
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 11:33:52 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/20 23:12:23 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/21 05:07:16 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	main(void)
 	// size_t open_max = OPEN_MAX;
 	// printf("len till null = %d",r);
 	// printf("Open max : %d",OPEN_MAX);
-    fd = open("./gnlTester/files/alternate_line_nl_with_nl", O_RDONLY); // get the fd from open
+    fd = open("./gnlTester/files/empty", O_RDONLY); // get the fd from open
     // fd = open("test2.txt", O_RDONLY); // get the fd from open
     // printf("fd is %d \n",fd);
 	// printf("fd === %d \n",fd);
@@ -77,8 +77,13 @@ int	main(void)
 //		buf = NULL;
 		r++;
 	}
-	printf("RETURN THE %d LINE |%s|",r,buf);
+	printf("RETURN THE %d LINE |%s|\n",r,buf);
 	free(buf);
+
+	buf = get_next_line(fd);
+	printf("RETURN THE %d LINE |%s|\n",r,buf);
+	free(buf);
+
 
 	return 0;
 }

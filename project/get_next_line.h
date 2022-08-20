@@ -6,7 +6,7 @@
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 08:51:30 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/20 23:05:53 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/21 03:21:33 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,11 @@ void	*ft_calloc(size_t nmemb, size_t size);//*
 char	*ft_strchr( char *s, int c);//*
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_dup_with_mode( char *s,char mode, int *len);//*
+char	*ft_dup_with_mode_n( char *s,char mode, int *len);//*
+char	*ft_dup_with_mode_null( char *s,char mode, int *len);//*
 char	*ft_strdup( char *s);
 size_t	ft_strlen_with_mode(char *s,char mode);
-
+size_t	ft_strlen(char *s);
 
 //get_next_line
 // char	*get_the_line(int fd);//for new version *
