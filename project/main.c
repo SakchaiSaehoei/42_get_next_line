@@ -6,7 +6,7 @@
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 11:33:52 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/20 17:43:00 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/20 23:12:23 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,21 +60,25 @@ int	main(void)
 	// size_t open_max = OPEN_MAX;
 	// printf("len till null = %d",r);
 	// printf("Open max : %d",OPEN_MAX);
-    fd = open("./gnlTester/files/43_no_nl", O_RDONLY); // get the fd from open
+    fd = open("./gnlTester/files/alternate_line_nl_with_nl", O_RDONLY); // get the fd from open
     // fd = open("test2.txt", O_RDONLY); // get the fd from open
     // printf("fd is %d \n",fd);
 	// printf("fd === %d \n",fd);
 	r = 1;
-	while (r < 10)
+	buf = get_next_line(fd);
+	while (buf)
 	{
-		buf = get_next_line(fd);// expected return is a new line the terminated by '\n'
-		if (ft_strchr(buf,'\n'))
-			printf("there is  a \\n at the end of the returned line %d\n",r);
+		// expected return is a new line the terminated by '\n'
+		// if (ft_strchr(buf,'\n'))
+		// 	printf("there is  a \\n at the end of the returned line %d\n",r);
 		printf("RETURN THE %d LINE |%s|",r,buf);
 		free(buf);
+		buf = get_next_line(fd);
+//		buf = NULL;
 		r++;
 	}
-
+	printf("RETURN THE %d LINE |%s|",r,buf);
+	free(buf);
 
 	return 0;
 }

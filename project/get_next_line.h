@@ -6,7 +6,7 @@
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 08:51:30 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/20 16:57:16 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/20 23:05:53 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <stdbool.h>
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 100
+#  define BUFFER_SIZE 7
 # endif
 
 # define TILL_NULL '\0'
