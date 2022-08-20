@@ -5,34 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/27 11:19:37 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/13 16:40:33 by ssaehoei         ###   ########.fr       */
+/*   Created: 2022/08/20 08:51:30 by ssaehoei          #+#    #+#             */
+/*   Updated: 2022/08/20 16:57:16 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <stdbool.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <limits.h>
+# include <stdbool.h>
 
-// # define BUFFER_SIZE 50
-typedef	struct Data {
-	char	*buf;
-	char	*temp;
-	char	*pending;
+# ifndef BUFFER_SIZE
+# define BUFFER_SIZE 100
+# endif
 
-	int		r;
-} data ;
-char	*get_next_line(int fd);
-size_t	ft_strlen(char *s);
-void	*ft_calloc(size_t nmemb, size_t size);
+# define TILL_NULL '\0'
+# define TILL_N '\n'
+# define DUP 'd'
+# define JOIN 'j'
+#
+//utils
+void	*ft_calloc(size_t nmemb, size_t size);//*
+char	*ft_strchr( char *s, int c);//*
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_dup_with_mode( char *s,char mode, int *len);//*
 char	*ft_strdup( char *s);
-char	*ft_strchr( char *s, int c);
-char	*ft_strjoin(char  *s1, char  *s2);
-char	*get_the_line(int fd);
-void	*ft_memset(void *s, int c, size_t n);
-#endif
+size_t	ft_strlen_with_mode(char *s,char mode);
+
+
+//get_next_line
+// char	*get_the_line(int fd);//for new version *
+char	*ft_read(int fd, char *s);//*
+// char	*ft_free(char *original, char *temp,char m_dj, char mode); //with mode
+char	*ft_free(char *original, char *temp,char m_dj);//with out mode
+char	*get_next_line(int fd);//*
+char	*ft_get_line(char *remain,int *len);
+
+# endif
+
