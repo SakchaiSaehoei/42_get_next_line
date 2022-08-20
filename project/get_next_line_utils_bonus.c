@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 08:50:42 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/21 05:36:53 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/21 05:47:59 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-// size_t	ft_strlen(char *s)
-// {
-// 	size_t	count;
-
-// 	if (!s)
-// 		return (0);
-// 	count = 0;
-// 	while(*(s + count)!= '\0')
-// 	{
-// 		count++;
-// 	}
-// 	return (count);
-// }
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen_with_mode(char *s,char mode)
 {

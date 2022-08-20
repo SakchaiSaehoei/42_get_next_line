@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ssaehoei <ssaehoei@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 08:50:16 by ssaehoei          #+#    #+#             */
-/*   Updated: 2022/08/21 05:43:33 by ssaehoei         ###   ########.fr       */
+/*   Updated: 2022/08/21 05:48:07 by ssaehoei         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
-
-
+#include "get_next_line_bonus.h"
 
 char	*ft_free(char *original,char *temp,char m_dj)
 {
